@@ -1,12 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="vendor/js/jquery-3.1.1.min.js"></script>
     <title>Title</title>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="page-header">
+            <h1>Среда тестирования ядер платежных терминалов.</h1>
+            <h3>Все тесты удовлетворяют спецификации EMV.</h3>
+        </div>
 
-Hello!
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#">Главная</a>
+            </li>
+            <li><a href="#">Вкладка 1</a></li>
+            <li><a href="#">Вкладка 2</a></li>
+            <li><a href="#">Вкладка 3</a></li>
+            <li><a href="#">Вкладка 4</a></li>
+        </ul>
+
+        <div class="col-xs-3">
+            <h3> Выберите тест для выполнения: </h3>
+            <div>
+                <button class="btn btn-primary margined-btn">Test 1</button>
+                <button class="btn btn-primary margined-btn">Test 2</button>
+                <button class="btn btn-primary margined-btn">Test 3</button>
+                <button class="btn btn-primary margined-btn">Test 4</button>
+                <button class="btn btn-primary margined-btn">Test 5</button>
+                <button class="btn btn-primary margined-btn">Test 6</button>
+                <button class="btn btn-primary margined-btn">Test 7</button>
+                <button class="btn btn-primary margined-btn">Test 8</button>
+                <button class="btn btn-primary margined-btn">Test 9</button>
+            </div>
+        </div>
+
+        <div class="col-xs-9">
+            <h3> Результаты теста: </h3>
+            <p class="text-primary bg-info"> Тест 1 пройден ...</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
