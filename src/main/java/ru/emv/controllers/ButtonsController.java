@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ButtonsController {
-    @PostMapping("btn1")
+    @PostMapping("/btn1")
     public void btn1() {
         System.out.println("btn1");
     }
