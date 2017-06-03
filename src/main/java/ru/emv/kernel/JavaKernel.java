@@ -1,19 +1,30 @@
 package ru.emv.kernel;
 
-import com.google.common.eventbus.Subscribe;
 import org.springframework.stereotype.Component;
-import ru.emv.message.EventMessage;
 import ru.emv.tester.ReaderCommand;
 
 @Component
 public class JavaKernel {
 
+    private KernelState state = KernelState.OFF;
 //    @Subscribe
 //    public void action(EventMessage messageEvent) {
 //        System.out.println("Получил сообщение:" + messageEvent);
 //    }
 
-    public String processReaderCommand(ReaderCommand readerCommand, String data) {
-        return null;
+    public void processReaderCommand(ReaderCommand readerCommand, String data) {
+
+        switch (readerCommand) {
+            case ACT:
+                state = KernelState.GPO;
+                break;
+            default:
+                state = KernelState.OFF;
+
+        }
+    }
+
+    public KernelState getState() {
+        return state;
     }
 }
