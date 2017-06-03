@@ -8,10 +8,10 @@ import ru.emv.tester.ReaderCommand;
 @Component
 public class JavaKernel {
 
-    @Subscribe
-    public void action(EventMessage messageEvent) {
-        System.out.println("Получил сообщение:" + messageEvent);
-    }
+//    @Subscribe
+//    public void action(EventMessage messageEvent) {
+//        System.out.println("Получил сообщение:" + messageEvent);
+//    }
 
     public String processReaderCommand(ReaderCommand readerCommand, String data) {
         return null;
