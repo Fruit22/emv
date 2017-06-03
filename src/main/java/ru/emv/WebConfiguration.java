@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import ru.emv.kernel.Kernel;
+import ru.emv.kernel.JavaKernel;
 
 /**
  * Created by fruit on 05.04.2017.
@@ -18,7 +18,7 @@ import ru.emv.kernel.Kernel;
 public class WebConfiguration extends WebMvcConfigurerAdapter {
 
     @Autowired
-    Kernel kernel;
+    JavaKernel kernel;
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
