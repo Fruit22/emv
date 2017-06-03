@@ -3,6 +3,7 @@ package ru.emv.controllers;
 import com.google.common.eventbus.EventBus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,23 +25,11 @@ public class ButtonsController {
     EventBus eventBus;
 
     @Autowired
-    @Qualifier("java")
-    private KernelTester kernelTester;
-
-    @Autowired
     private ReaderCommandTest readerCommandTest;
 
     @PostMapping("readerCommands/actCommand")
-    public ResponseEntity<String> sendActCommand() {
-        readerCommandTest.testActCommand();
-        String response =
-        return ResponseEntity.ok(response);
-
-
-
-//        EventMessage massage = builder.setId(1)
-//                .setMessage("test_1")
-//                .build();
-//        eventBus.post(massage);
+    public ResponseEntity<Boolean> sendActCommand() {
+        Boolean result = readerCommandTest.testActCommand();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
