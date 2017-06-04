@@ -21,4 +21,14 @@ public class ReaderCommandTest {
         return tester.getKernelState() == KernelState.GPO;
     }
 
+    public boolean testCleanCommand() {
+        tester.sendReaderCommand(ReaderCommand.CLEAN, "asdwerfw45r346e46hn7ed5k");
+        return tester.getKernelState() == KernelState.OFF;
+    }
+
+    public boolean testStopCommand() {
+        tester.sendReaderCommand(ReaderCommand.STOP, "asdwerfw45r346e46hnd5k");
+        return tester.getKernelState() == KernelState.OFF;
+    }
+
 }

@@ -24,6 +24,12 @@ public class JavaKernel {
             case ACT:
                 state = KernelState.GPO;
                 break;
+            case STOP:
+                state = KernelState.OFF;
+                break;
+            case CLEAN:
+                state = KernelState.OFF;
+                break;
             default:
                 state = KernelState.OFF;
 
