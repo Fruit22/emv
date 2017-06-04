@@ -7,10 +7,6 @@ import ru.emv.tester.ReaderCommand;
 public class JavaKernel {
 
     private KernelState state = KernelState.OFF;
-//    @Subscribe
-//    public void action(EventMessage messageEvent) {
-//        System.out.println("Получил сообщение:" + messageEvent);
-//    }
 
     public void processReaderCommand(ReaderCommand readerCommand, String data) {
 

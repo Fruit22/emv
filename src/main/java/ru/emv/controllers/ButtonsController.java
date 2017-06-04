@@ -27,7 +27,7 @@ public class ButtonsController {
     @Autowired
     private ReaderCommandTest readerCommandTest;
 
-    @PostMapping("readerCommands/actCommand")
+    @PostMapping("/**/readerCommands/actCommand")
     public ResponseEntity<Boolean> sendActCommand() {
         Boolean result = readerCommandTest.testActCommand();
         return new ResponseEntity<>(result, HttpStatus.OK);
