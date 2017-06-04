@@ -35,13 +35,13 @@ public class ButtonsController {
 
     @PostMapping("/**/readerCommands/stopCommand")
     public ResponseEntity<Boolean> stopActCommand() {
-        Boolean result = readerCommandTest.testActCommand();
+        Boolean result = readerCommandTest.testStopCommand();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping("/**/readerCommands/cleanCommand")
     public ResponseEntity<Boolean> cleanActCommand() {
-        Boolean result = readerCommandTest.testActCommand();
+        Boolean result = readerCommandTest.testCleanCommand();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
