@@ -27,8 +27,9 @@ public class JavaKernel {
             case ACT:
                 if (state == IDLE) {
                     state = KernelState.GPO;
+                } else {
+                    state = KernelState.OFF;
                 }
-                break;
             case STOP:
                 state = KernelState.OFF;
                 break;
