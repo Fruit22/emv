@@ -2,6 +2,7 @@ package ru.emv.tests;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.emv.kernel.JavaKernel;
 import ru.emv.kernel.KernelState;
 import ru.emv.tester.KernelTester;
 import ru.emv.tester.ReaderCommand;
@@ -16,6 +17,9 @@ public class ReaderCommandTest {
         this.tester = tester;
     }
 
+    @Autowired
+    private JavaKernel javaKernel;
+
     public boolean testActCommand() {
         tester.sendReaderCommand(ReaderCommand.ACT, "asdwerfw45r346e46hn45j7ed5k");
         return tester.getKernelState() == KernelState.GPO;
@@ -29,6 +33,10 @@ public class ReaderCommandTest {
     public boolean testStopCommand() {
         tester.sendReaderCommand(ReaderCommand.STOP, "asdwerfw45r346e46hnd5k");
         return tester.getKernelState() == KernelState.OFF;
+    }
+
+    public void changeKernelStateToIdle() {
+        javaKernel.setState(KernelState.IDLE);
     }
 
 }

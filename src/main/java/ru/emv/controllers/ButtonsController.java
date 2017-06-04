@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.emv.kernel.JavaKernel;
 import ru.emv.message.MessageBuilder;
 import ru.emv.tester.KernelTester;
 import ru.emv.tester.ReaderCommand;
@@ -43,5 +44,11 @@ public class ButtonsController {
     public ResponseEntity<Boolean> cleanActCommand() {
         Boolean result = readerCommandTest.testActCommand();
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PostMapping("/**/readerCommands/idleState")
+    public ResponseEntity<Boolean> idleStateCommand() {
+        readerCommandTest.changeKernelStateToIdle();
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 }

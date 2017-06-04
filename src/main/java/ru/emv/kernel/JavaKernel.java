@@ -1,10 +1,13 @@
 package ru.emv.kernel;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.emv.tester.ReaderCommand;
 
 import java.util.logging.Logger;
+
+import static ru.emv.kernel.KernelState.IDLE;
 
 @Component
 public class JavaKernel {
@@ -22,7 +25,9 @@ public class JavaKernel {
 
         switch (readerCommand) {
             case ACT:
-                state = KernelState.GPO;
+                if (state == IDLE) {
+                    state = KernelState.GPO;
+                }
                 break;
             case STOP:
                 state = KernelState.OFF;
@@ -39,5 +44,9 @@ public class JavaKernel {
 
     public KernelState getState() {
         return state;
+    }
+
+    public void setState(KernelState state) {
+        this.state = state;
     }
 }
