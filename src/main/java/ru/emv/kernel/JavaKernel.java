@@ -30,6 +30,7 @@ public class JavaKernel {
                 } else {
                     state = KernelState.OFF;
                 }
+                break;
             case STOP:
                 state = KernelState.OFF;
                 break;
