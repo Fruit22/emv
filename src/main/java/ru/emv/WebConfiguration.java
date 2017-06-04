@@ -10,6 +10,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import ru.emv.kernel.JavaKernel;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 /**
  * Created by fruit on 05.04.2017.
  */
@@ -31,6 +36,16 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         EventBus eventBus = new EventBus();
         eventBus.register(kernel);
         return eventBus;
+    }
+
+    @Bean
+    public Logger logger() throws IOException {
+        Logger logger = Logger.getLogger("JavaKernel");
+        FileHandler fh = new FileHandler("src/main/resources/logs/Kernel.log");
+        logger.addHandler(fh);
+        SimpleFormatter formatter = new SimpleFormatter();
+        fh.setFormatter(formatter);
+        return logger;
     }
 }
 
