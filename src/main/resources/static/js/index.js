@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    var actButton = document.getElementById('act-signal');
-    var stopButton = document.getElementById('stop-signal');
-    var cleanButton = document.getElementById('clean-signal');
+    var actButton = document.getElementById('act-test');
+    var stopButton = document.getElementById('stop-test');
+    var cleanButton = document.getElementById('clean-test');
     var idleState = document.getElementById('idle-state');
 
     addTestToButton(actButton, "readerCommands/actCommand");
@@ -16,9 +16,13 @@ $(document).ready(function () {
                 type: "POST"
             }).done(function (result) {
                 if (result) {
-                    $("#test-result").text("Тест пройден!");
+                    $("#test-result").text("Тест \"" + button.id + "\" пройден!");
+                    $("#test-result").removeClass("bg-info bg-danger").addClass("bg-success");
+                    $("#test-result").removeClass("text-primary text-danger").addClass("text-success");
                 } else {
-                    $("#test-result").text("Тест провален!");
+                    $("#test-result").text("Тест \"" + button.id + "\" провален!");
+                    $("#test-result").removeClass("bg-info bg-success").addClass("bg-danger");
+                    $("#test-result").removeClass("text-primary text-success").addClass("text-danger");
                 }
             });
         });
