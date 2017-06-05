@@ -34,7 +34,8 @@ $(document).ready(function () {
                 url: testUrl,
                 type: "POST"
             }).done(function (result) {
-                $("#test-result").text("Ядро перешло в состояние ожидания!");
+                    $("#test-result").text("Ядро перешло в состояние ожидания!");
+                    $("#test-result").removeClass("text-primary text-danger").addClass("text-success");
             });
         });
     }
